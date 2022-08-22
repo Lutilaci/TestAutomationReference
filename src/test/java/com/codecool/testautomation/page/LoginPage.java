@@ -12,6 +12,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
     @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
     @FindBy(css = "#log_out") public WebElement logoutButton;
+    @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
 
     final String USER_NAME = System.getenv("USERNAME");
     final String PASSWORD = System.getenv("PASSWORD");
@@ -22,20 +23,26 @@ public class LoginPage extends BasePage{
     public void login() {
         openUrl( "login.jsp");
         waitForWebElementToBePresent(userNameField);
-        System.out.println(USER_NAME);
-        System.out.println(PASSWORD);
 
         userNameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
-        passwordField.submit();
-    }
+        submitLogin();
 
-    public void loginSuccessful() {
-        login();
         waitForWebElementToBePresent(userProfilePicture);
     }
 
-    String validateSuccessfulLogin() {
+    public void loginWithDifferentValue(String username, String password){
+        openUrl( "login.jsp");
+        waitForWebElementToBePresent(userNameField);
+
+        userNameField.sendKeys(username);
+        passwordField.sendKeys(password);
+        submitLogin();
+        waitForWebElementToBePresent(userProfilePicture);
+    }
+
+
+    public String validateSuccessfulLogin() {
         waitForWebElementToBePresent(userProfilePicture);
         String profilePictureAltString = userProfilePicture.getAttribute("alt");
         return profilePictureAltString;
@@ -44,5 +51,9 @@ public class LoginPage extends BasePage{
     public void logout(){
         avatar.click();
         logoutButton.click();
+    }
+
+    public void submitLogin(){
+        passwordField.submit();
     }
 }
