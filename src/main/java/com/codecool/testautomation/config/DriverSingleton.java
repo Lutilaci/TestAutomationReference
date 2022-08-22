@@ -1,4 +1,5 @@
 package com.codecool.testautomation.config;
+import com.codecool.testautomation.page.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -20,5 +21,4 @@ public class DriverSingleton {
         driver.quit();
         driver = null;
     }
-
 }

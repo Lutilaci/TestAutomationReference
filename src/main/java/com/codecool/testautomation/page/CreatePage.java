@@ -2,7 +2,9 @@ package com.codecool.testautomation.page;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -22,7 +24,7 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "//*[@id=\"create-issue-dialog\"]") public WebElement createIssueDialog;
     @FindBy (xpath = "//aui-item-link[@id='create-subtask']/a/span") public WebElement createSubClass;
     @FindBy (xpath = "//*[@id=\"delete-issue\"]/a") public WebElement deleteButton;
-    @FindBy (xpath = "//*[@id=\"delete-issue-submit\"]") public WebElement finalDeleteButton;
+    @FindBy (xpath = "/html//input[@id='delete-issue-submit']") public WebElement finalDeleteButton;
     @FindBy (xpath="//*[@id=\"summary-val\"]") public WebElement issueHeader;
     @FindBy (xpath = "//*[@id=\"find_link\"]") public WebElement issuesButton;
     @FindBy (xpath = "//ul[@class='aui-last']") public WebElement issueScrollDown;
@@ -37,7 +39,9 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "//*[@id=\"searcher-query\"]") public WebElement searchForIssueField;
     @FindBy (xpath = "//*[@id=\"issuerow12961\"]/td[2]/a") public WebElement subTaskName;
     @FindBy (xpath= "//*[@id=\"summary\"]") public WebElement summaryField;
-    @FindBy (xpath = "//*[@id=\"actions_12961\"]")
+    @FindBy (css = "tr:nth-of-type(1) > .issue_actions > a[title='Actions (Type . to access issue actions)'] > .aui-icon.aui-icon-small.aui-iconfont-more") public WebElement hiddenSubTaskButton;
+    @FindBy (xpath = "//a[text()='Delete']") public WebElement deleteSubTaskButton;
+    @FindBy (css = ".stsummary > a") public WebElement subTaskTableFirstRow;
 
     public List<String> issueTypesSupposedToBe = Arrays.asList("Bug", "Story", "Task");
 
@@ -50,10 +54,9 @@ public class CreatePage extends BasePage{
     }
 
     public void restoreSubTask(){
-        waitForElementToClick(subTaskName);
-        waitForElementToClick(actionButton);
-        waitForElementToClick(deleteButton);
-        clickButton(finalDeleteButton);
+        clickButton(hiddenSubTaskButton);
+        waitForElementToClick(deleteSubTaskButton);
+        waitForElementToClick(finalDeleteButton);
     }
 
     public void createSubTask(){
