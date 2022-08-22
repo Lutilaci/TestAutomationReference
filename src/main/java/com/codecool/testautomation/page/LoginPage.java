@@ -3,8 +3,6 @@ package com.codecool.testautomation.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codecool.testautomation.keyword.Keywords.*;
-
 public class LoginPage extends BasePage{
 
     @FindBy(id = "login-form-username") WebElement userNameField;
@@ -14,7 +12,7 @@ public class LoginPage extends BasePage{
     @FindBy(css = "#log_out") public WebElement logoutButton;
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
 
-    final String USER_NAME = System.getenv("USER_NAME");
+    final String USER_NAME = System.getenv("USERNAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
     public LoginPage() {

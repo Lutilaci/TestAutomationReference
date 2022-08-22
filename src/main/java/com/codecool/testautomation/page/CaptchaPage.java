@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import static com.codecool.testautomation.keyword.Keywords.*;
-
 public class CaptchaPage extends BasePage {
     LoginPage loginPage;
 

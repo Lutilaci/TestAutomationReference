@@ -3,9 +3,6 @@ package com.codecool.testautomation.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import static com.codecool.testautomation.keyword.Keywords.*;
-
-
 
 public class EditIssuePage extends BasePage{
 
@@ -16,17 +13,13 @@ public class EditIssuePage extends BasePage{
     @FindBy(id = "description-val") public WebElement descriptionValue;
     @FindBy(id = "edit-issue-submit") public WebElement updateButton;
     @FindBy(xpath = "//*[@id=\"description-wiki-edit\"]/nav/div/div/ul/li[2]/button") public WebElement switchTextMode;
-    @FindBy(xpath = "//*[@id=\"edit-issue-dialog\"]/footer/div/div/button") public WebElement cancelChangesButton;
+    @FindBy(css = ".buttons .aui-button-link") public WebElement cancelChangesButton;
     @FindBy(id = "fixVersions-textarea") public WebElement fixVersionsField;
     @FindBy(css = ".item-delete") public WebElement fixVersionDelete;
     @FindBy(id = "action_id_21") public WebElement inProgressButton;
     @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div") public WebElement updateSuccessMessage;
 
     public EditIssuePage() {}
-
-    public void clickEditIssue(){
-        waitForElementToClick(editButton);
-    }
 
     public void renameSummary(String summaryName){
         wait.until(ExpectedConditions.elementToBeClickable(
@@ -35,12 +28,12 @@ public class EditIssuePage extends BasePage{
     }
 
     public void updateIssue(){
-        updateButton.click();
+        clickButton(updateButton);
         waitForWebElementToBePresent(updateSuccessMessage);
     }
 
     public void cancelUpdate(){
-        cancelChangesButton.click();
+        clickButton(cancelChangesButton);
         driver.switchTo().alert().accept();
     }
 
@@ -61,7 +54,6 @@ public class EditIssuePage extends BasePage{
         descriptionField.clear();
         summaryField.submit();
     }
-
 
     public void addDescription(String description){
         waitForElementToClick(switchTextMode);

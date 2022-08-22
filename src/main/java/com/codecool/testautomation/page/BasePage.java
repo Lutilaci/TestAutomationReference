@@ -35,4 +35,6 @@ public abstract class BasePage {
 
     public void waitForElementToClick(WebElement webElement){
         wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();}
+
+    public static void clickButton(WebElement webElement){webElement.click();}
 }
