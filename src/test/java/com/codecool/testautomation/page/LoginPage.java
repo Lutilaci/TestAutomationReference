@@ -1,39 +1,29 @@
 package com.codecool.testautomation.page;
 
-import org.junit.jupiter.api.Assertions;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import static com.codecool.testautomation.keyword.Keywords.*;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(id = "login-form-username")
-    WebElement userNameField;
+    @FindBy(id = "login-form-username") WebElement userNameField;
+    @FindBy(id = "login-form-password") WebElement passwordField;
+    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
+    @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
+    @FindBy(css = "#log_out") public WebElement logoutButton;
 
-    @FindBy(id = "login-form-password")
-    WebElement passwordField;
-
-    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img")
-    WebElement userProfilePicture;
-
-    @FindBy(id = "login")
-    WebElement loginSubmitButton;
-
-    final String USER_NAME = System.getenv("USER_NAME");
+    final String USER_NAME = System.getenv("USERNAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
     public LoginPage() {
-        PageFactory.initElements(driver, this);
     }
 
     public void login() {
         openUrl( "login.jsp");
         waitForWebElementToBePresent(userNameField);
+        System.out.println(USER_NAME);
+        System.out.println(PASSWORD);
 
         userNameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
@@ -51,10 +41,8 @@ public class LoginPage extends BasePage{
         return profilePictureAltString;
     }
 
-    boolean validateErrorMessage(String errorId) {
-        waitForWebElementToBePresent(loginSubmitButton);
-        WebElement errorMessage = driver.findElement(By.id(errorId));
-        boolean isPresentErrorMessage = errorMessage.isDisplayed();
-        return isPresentErrorMessage;
+    public void logout(){
+        avatar.click();
+        logoutButton.click();
     }
 }

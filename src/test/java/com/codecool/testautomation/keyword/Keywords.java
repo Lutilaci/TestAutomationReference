@@ -1,8 +1,6 @@
 package com.codecool.testautomation.keyword;
 
 import com.codecool.testautomation.page.BasePage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
@@ -12,10 +10,6 @@ public class Keywords extends BasePage {
 
     public static void openUrl(String url){
         driver.get(BASE_URL + url);
-    }
-    public static void logout(WebDriver driver){
-        driver.findElement(By.cssSelector(".aui-avatar-small img")).click();
-        driver.findElement(By.cssSelector("#log_out")).click();
     }
 
     public static void clickButton(WebElement webElement){webElement.click();

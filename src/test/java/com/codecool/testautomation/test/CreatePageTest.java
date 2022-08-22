@@ -13,8 +13,8 @@ public class CreatePageTest {
 
     @BeforeAll
     public static void setUp() {
-        createPage = new CreatePage();
         loginPage = new LoginPage();
+        createPage = new CreatePage();
         loginPage.login();
     }
 
@@ -70,7 +70,6 @@ public class CreatePageTest {
     @Test
     public void createNewIssue() {
         openUrl("secure/Dashboard.jspa");
-        clickButton(createPage.mainCreateButton);
         createPage.createSpecificIssue("MTP", "Bug", "Happy Test");
 
         // Restore
@@ -89,6 +88,7 @@ public class CreatePageTest {
     @Test
     public void CreateIssueInCOALAProjectWithIssueTypes() {
         openUrl("secure/Dashboard.jspa");
+        clickButton(createPage.mainCreateButton);
         createPage.setProjectTo("COALA");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -97,6 +97,7 @@ public class CreatePageTest {
     @Test
     public void CreateIssueInJETIProjectWithIssueTypes() {
         openUrl("secure/Dashboard.jspa");
+        clickButton(createPage.mainCreateButton);
         createPage.setProjectTo("JETI");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -106,6 +107,7 @@ public class CreatePageTest {
     @Test
     public void CreateIssueInTOUCANProjectWithIssueTypes() {
         openUrl("secure/Dashboard.jspa");
+        clickButton(createPage.mainCreateButton);
         createPage.setProjectTo("TOUCAN");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -117,7 +119,7 @@ public class CreatePageTest {
         clickButton(createPage.mainCreateButton);
         createPage.fillOutCreation("MTP", "Bug", "Issue Cancel Test");
         createPage.cancelCreation();
-        createPage.validateIssueDoesntExist();
+        createPage.validateIssueDoesntExist("Issue Cancel Test");
 
         Assertions.assertEquals("No issues were found to match your search", createPage.resultPageContent.getText());
     }

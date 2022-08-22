@@ -4,9 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.codecool.testautomation.keyword.Keywords.*;
 
@@ -21,6 +19,7 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "//button[text()='Cancel']") public WebElement cancelButton;
     @FindBy (xpath = "//div[@id='qf-field-summary']//div[@role='alert']") public WebElement createIssueErrorMessage;
     @FindBy (xpath = "//*[@id=\"create-issue-submit\"]") public WebElement createIssueButton;
+    @FindBy (xpath = "//*[@id=\"create-issue-dialog\"]") public WebElement createIssueDialog;
     @FindBy (xpath = "//aui-item-link[@id='create-subtask']/a/span") public WebElement createSubClass;
     @FindBy (xpath = "//*[@id=\"delete-issue\"]/a") public WebElement deleteButton;
     @FindBy (xpath = "//*[@id=\"delete-issue-submit\"]") public WebElement finalDeleteButton;
@@ -42,9 +41,7 @@ public class CreatePage extends BasePage{
 
     public List<String> issueTypesSupposedToBe = Arrays.asList("Bug", "Story", "Task");
 
-    public CreatePage() {
-//        PageFactory.initElements(driver, this);
-    }
+    public CreatePage() {}
 
     public void restoreIssue(){
         waitForElementToClick(actionButton);
@@ -66,7 +63,7 @@ public class CreatePage extends BasePage{
         clickButton(createIssueButton);
     }
 
-    public void clearIssueType(WebDriverWait wait){
+    public void clearIssueType(){
         String os = System.getProperty("os.name");
         wait.until(ExpectedConditions.elementToBeClickable(issueTypeSelector));
         if (os.equals("Mac OS X")){
@@ -88,14 +85,9 @@ public class CreatePage extends BasePage{
     }
 
     public void createSpecificIssue(String projectName, String issueType, String summary){
-        clearProjectField();
-        projectField.sendKeys(projectName);
-        projectField.sendKeys(Keys.RETURN);
-        clearIssueType(wait);
-        issueTypeSelector.sendKeys(issueType);
-        wait.until(ExpectedConditions.elementToBeClickable(
-                issueTypeSelector)).sendKeys(Keys.RETURN);
-        waitForElementToSendText(summaryField, summary);
+        waitForElementToClick(mainCreateButton);
+        waitForWebElementToBePresent(createIssueDialog);
+        fillOutCreation(projectName, issueType, summary);
         waitForElementToClick(createIssueButton);
         waitForWebElementToBePresent(popupMessage);
         waitForElementToClick(driver.findElement(By.partialLinkText("Happy Test")));
@@ -127,10 +119,20 @@ public class CreatePage extends BasePage{
     }
 
     public void setProjectTo(String project){
-        clickButton(mainCreateButton);
         clearProjectField();
         projectField.sendKeys(project);
         projectField.sendKeys(Keys.RETURN);
+    }
+
+    public void setIssueTo(String issueType){
+        clearIssueType();
+        issueTypeSelector.sendKeys(issueType);
+        wait.until(ExpectedConditions.elementToBeClickable(
+                issueTypeSelector)).sendKeys(Keys.RETURN);
+    }
+
+    public void setSummaryTo(String summary){
+        waitForElementToSendText(summaryField, summary);
     }
 
     public void cancelCreation(){
@@ -140,35 +142,20 @@ public class CreatePage extends BasePage{
     }
 
     public void fillOutCreation(String projectName, String issueType, String summary){
-        clearProjectField();
-        projectField.sendKeys(projectName);
-        projectField.sendKeys(Keys.RETURN);
-        clearIssueType(wait);
-        issueTypeSelector.sendKeys(issueType);
-        wait.until(ExpectedConditions.elementToBeClickable(
-                issueTypeSelector)).sendKeys(Keys.RETURN);
-        waitForElementToSendText(summaryField, summary);
+        setProjectTo(projectName);
+        setIssueTo(issueType);
+        setSummaryTo(summary);
     }
 
-    public void validateIssueDoesntExist(){
-        waitForElementToClick(issuesButton);
-        waitForElementToClick(searchForIssuesButton);
-        waitForElementToSendText(searchForIssueField, "Issue Cancel Test");
-        clickButton(searchButton);
+    public void validateIssueDoesntExist(String issueName){
+        searchForIssue(issueName);
         waitForWebElementToBePresent(resultPageContent);
     }
 
-//    public void waitForWebElementToBePresent(WebElement webElement){
-//        wait.until(ExpectedConditions.visibilityOf(webElement));
-//    }
-//
-//    public void waitForElementToSendText(WebElement webElement, String text){
-//        wait.until(ExpectedConditions.elementToBeClickable(webElement)).sendKeys(text);
-//
-//    }
-//    public void waitForElementToClick(WebElement webElement){
-//        wait.until(ExpectedConditions.elementToBeClickable(
-//                webElement
-//        )).click();
-//    }
+    public void searchForIssue(String issueName){
+        waitForElementToClick(issuesButton);
+        waitForElementToClick(searchForIssuesButton);
+        waitForElementToSendText(searchForIssueField, issueName);
+        clickButton(searchButton);
+    }
 }
