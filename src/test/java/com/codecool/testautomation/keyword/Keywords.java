@@ -12,18 +12,14 @@ public class Keywords extends BasePage {
         driver.get(BASE_URL + url);
     }
 
-    public static void clickButton(WebElement webElement){webElement.click();
-    }
+    public static void clickButton(WebElement webElement){webElement.click();}
 
     public static void waitForWebElementToBePresent(WebElement webElement){
-        wait.until(ExpectedConditions.visibilityOf(webElement));
-    }
+        wait.until(ExpectedConditions.visibilityOf(webElement));}
 
     public static void waitForElementToSendText(WebElement webElement, String text){
-        wait.until(ExpectedConditions.elementToBeClickable(webElement)).sendKeys(text);
+        wait.until(ExpectedConditions.elementToBeClickable(webElement)).sendKeys(text);}
 
-    }
     public static void waitForElementToClick(WebElement webElement){
-        wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();
-    }
+        wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();}
 }
