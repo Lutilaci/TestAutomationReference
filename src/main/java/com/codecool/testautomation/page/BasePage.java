@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.Objects;
 
 public abstract class BasePage {
 
@@ -52,4 +53,9 @@ public abstract class BasePage {
         wait.until(ExpectedConditions.elementToBeClickable(webElement)).click();}
 
     public static void clickButton(WebElement webElement){webElement.click();}
+
+    public static String nullToEmptyString(String string) {
+        return Objects.requireNonNullElse(string, "");
+    }
+
 }

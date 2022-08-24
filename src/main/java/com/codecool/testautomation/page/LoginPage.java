@@ -1,5 +1,6 @@
 package com.codecool.testautomation.page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -10,6 +11,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
     @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
     @FindBy(css = "#log_out") public WebElement logoutButton;
+    @FindBy(css = "#login") public WebElement loginButton;
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
 
     public LoginPage() {}
@@ -29,10 +31,9 @@ public class LoginPage extends BasePage{
         openUrl( "login.jsp");
         waitForWebElementToBePresent(userNameField);
 
-        userNameField.sendKeys(username);
-        passwordField.sendKeys(password);
+        userNameField.sendKeys(nullToEmptyString(username));
+        passwordField.sendKeys(nullToEmptyString(password));
         submitLogin();
-        waitForWebElementToBePresent(userProfilePicture);
     }
 
 
@@ -45,6 +46,13 @@ public class LoginPage extends BasePage{
     public void logout(){
         avatar.click();
         logoutButton.click();
+    }
+
+    public boolean validateErrorMessage(String errorId) {
+//        waitForWebElementToBePresent(loginButton);
+        WebElement errorMessage = driver.findElement(By.className(errorId));
+        boolean isPresentErrorMessage = errorMessage.isDisplayed();
+        return isPresentErrorMessage;
     }
 
     public void submitLogin(){

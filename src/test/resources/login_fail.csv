@@ -1,0 +1,3 @@
+User name,Password,Expected result - id of error message
+,,aui-message-error
+example,Example123,aui-message-error
