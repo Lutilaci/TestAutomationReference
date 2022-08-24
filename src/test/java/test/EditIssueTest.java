@@ -45,6 +45,5 @@ public class EditIssueTest{
         editIssuePage.addDescription("new description");
         editIssuePage.updateIssue();
         Assertions.assertEquals("new description",editIssuePage.getDescription());
-
     }
 }

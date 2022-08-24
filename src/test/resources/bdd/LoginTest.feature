@@ -1,4 +1,3 @@
-# Created by luti at 2022. 08. 23.
 Feature: Test Login feature
   Try to login to Jira
 
