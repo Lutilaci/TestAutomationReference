@@ -7,17 +7,17 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class EditIssuePage extends BasePage{
 
     @FindBy(id = "edit-issue") public WebElement editButton;
-    @FindBy(id = "summary") public WebElement summaryField;
-    @FindBy(id = "summary-val") public WebElement summaryValue;
+    @FindBy(css = ".buttons .aui-button-link") public WebElement cancelChangesButton;
     @FindBy(id = "description") public WebElement descriptionField;
     @FindBy(id = "description-val") public WebElement descriptionValue;
-    @FindBy(id = "edit-issue-submit") public WebElement updateButton;
+    @FindBy(id = "summary") public WebElement summaryField;
+    @FindBy(id = "summary-val") public WebElement summaryValue;
     @FindBy(xpath = "//*[@id=\"description-wiki-edit\"]/nav/div/div/ul/li[2]/button") public WebElement switchTextMode;
-    @FindBy(css = ".buttons .aui-button-link") public WebElement cancelChangesButton;
+    @FindBy(id = "edit-issue-submit") public WebElement updateButton;
+    @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div") public WebElement updateSuccessMessage;
     @FindBy(id = "fixVersions-textarea") public WebElement fixVersionsField;
     @FindBy(css = ".item-delete") public WebElement fixVersionDelete;
     @FindBy(id = "action_id_21") public WebElement inProgressButton;
-    @FindBy(xpath = "//*[@id=\"aui-flag-container\"]/div/div") public WebElement updateSuccessMessage;
 
     public EditIssuePage() {}
 

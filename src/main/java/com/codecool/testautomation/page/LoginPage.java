@@ -6,13 +6,13 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage{
 
-    @FindBy(id = "login-form-username") WebElement userNameField;
-    @FindBy(id = "login-form-password") WebElement passwordField;
-    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
     @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
     @FindBy(css = "#log_out") public WebElement logoutButton;
-    @FindBy(css = "#login") public WebElement loginButton;
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
+    @FindBy(id = "login-form-password") WebElement passwordField;
+    @FindBy(id = "login-form-username") WebElement userNameField;
+    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
+    @FindBy(css = "#login") public WebElement loginButton;
 
     public LoginPage() {}
 

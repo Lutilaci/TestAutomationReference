@@ -20,8 +20,8 @@ public abstract class BasePage {
     final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
-    @FindBy(id = "login-form-username") WebElement userNameField;
     @FindBy(id = "login-form-password") WebElement passwordField;
+    @FindBy(id = "login-form-username") WebElement userNameField;
 
     public BasePage(){
         driver = DriverSingleton.getDriver();

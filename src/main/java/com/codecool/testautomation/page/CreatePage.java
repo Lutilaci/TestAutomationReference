@@ -20,7 +20,9 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "//*[@id=\"create-issue-dialog\"]") public WebElement createIssueDialog;
     @FindBy (xpath = "//aui-item-link[@id='create-subtask']/a/span") public WebElement createSubClass;
     @FindBy (xpath = "//*[@id=\"delete-issue\"]/a") public WebElement deleteButton;
+    @FindBy (xpath = "//a[text()='Delete']") public WebElement deleteSubTaskButton;
     @FindBy (xpath = "/html//input[@id='delete-issue-submit']") public WebElement finalDeleteButton;
+    @FindBy (css = "tr:nth-of-type(1) > .issue_actions > a[title='Actions (Type . to access issue actions)'] > .aui-icon.aui-icon-small.aui-iconfont-more") public WebElement hiddenSubTaskButton;
     @FindBy (xpath="//*[@id=\"summary-val\"]") public WebElement issueHeader;
     @FindBy (xpath = "//*[@id=\"find_link\"]") public WebElement issuesButton;
     @FindBy (xpath = "//ul[@class='aui-last']") public WebElement issueScrollDown;
@@ -33,11 +35,9 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "(//button[@type='button'])[3]") public WebElement searchButton;
     @FindBy (xpath = "/html//li[@id='issues_new_search_link']") public WebElement searchForIssuesButton;
     @FindBy (xpath = "//*[@id=\"searcher-query\"]") public WebElement searchForIssueField;
+    @FindBy (css = ".stsummary > a") public WebElement subTaskTableFirstRow;
     @FindBy (xpath = "//*[@id=\"issuerow12961\"]/td[2]/a") public WebElement subTaskName;
     @FindBy (xpath= "//*[@id=\"summary\"]") public WebElement summaryField;
-    @FindBy (css = "tr:nth-of-type(1) > .issue_actions > a[title='Actions (Type . to access issue actions)'] > .aui-icon.aui-icon-small.aui-iconfont-more") public WebElement hiddenSubTaskButton;
-    @FindBy (xpath = "//a[text()='Delete']") public WebElement deleteSubTaskButton;
-    @FindBy (css = ".stsummary > a") public WebElement subTaskTableFirstRow;
 
     public List<String> issueTypesSupposedToBe = Arrays.asList("Bug", "Story", "Task");
 
