@@ -60,4 +60,9 @@ public class EditIssuePage extends BasePage{
         descriptionField.clear();
        waitForElementToSendText(descriptionField, description);
     }
+
+    public boolean editButtonIsPresent(){
+        waitForWebElementToBePresent(editButton);
+        return editButton.isDisplayed();
+    }
 }

@@ -12,6 +12,5 @@ public class BrowsePage extends BasePage {
     @FindBy (css = ".project-meta-value:nth-child(4)") public WebElement projectMetaValue;
     @FindBy (xpath = "/html//span[@id='issues-subnavigation-title']") public WebElement subnavigatorTitle;
 
-    public BrowsePage() {
-    }
+    public BrowsePage() {}
 }

@@ -6,8 +6,7 @@ public class DriverSingleton {
 
     private static WebDriver driver = null;
 
-    private DriverSingleton() {
-    }
+    private DriverSingleton() {}
 
     public static WebDriver getDriver() {
         if (driver == null) {

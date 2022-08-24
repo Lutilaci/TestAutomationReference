@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import static com.codecool.testautomation.config.DriverSingleton.quit;
 
-public class LogOutTest {
+public class LogOutTest{
 
     static LoginPage loginPage;
 

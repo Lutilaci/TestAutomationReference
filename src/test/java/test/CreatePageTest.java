@@ -1,20 +1,17 @@
  package test;
 
 import com.codecool.testautomation.page.CreatePage;
-import com.codecool.testautomation.page.LoginPage;
 import org.junit.jupiter.api.*;
 
 import static com.codecool.testautomation.config.DriverSingleton.*;
 
 public class CreatePageTest {
     static CreatePage createPage;
-    static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp() {
-        loginPage = new LoginPage();
         createPage = new CreatePage();
-        loginPage.login();
+        createPage.login();
     }
 
     @AfterAll
@@ -86,8 +83,7 @@ public class CreatePageTest {
 
     @Test
     public void CreateIssueInCOALAProjectWithIssueTypes() {
-        createPage.openUrl("secure/Dashboard.jspa");
-        createPage.clickButton(createPage.mainCreateButton);
+        createPage.clickCreateButton();
         createPage.setProjectTo("COALA");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -95,8 +91,7 @@ public class CreatePageTest {
 
     @Test
     public void CreateIssueInJETIProjectWithIssueTypes() {
-        createPage.openUrl("secure/Dashboard.jspa");
-        createPage.clickButton(createPage.mainCreateButton);
+        createPage.clickCreateButton();
         createPage.setProjectTo("JETI");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -105,8 +100,7 @@ public class CreatePageTest {
     // I don't have permission to create TOUCAN project
     @Test
     public void CreateIssueInTOUCANProjectWithIssueTypes() {
-        createPage.openUrl("secure/Dashboard.jspa");
-        createPage.clickButton(createPage.mainCreateButton);
+        createPage.clickCreateButton();
         createPage.setProjectTo("TOUCAN");
 
         Assertions.assertEquals(createPage.issueTypesSupposedToBe, createPage.getIssueTypes());
@@ -114,8 +108,7 @@ public class CreatePageTest {
 
     @Test
     public void CancelIssueAfterFill() {
-        createPage.openUrl("secure/Dashboard.jspa");
-        createPage.clickButton(createPage.mainCreateButton);
+        createPage.clickCreateButton();
         createPage.fillOutCreation("MTP", "Bug", "Issue Cancel Test");
         createPage.cancelCreation();
         createPage.validateIssueDoesntExist("Issue Cancel Test");

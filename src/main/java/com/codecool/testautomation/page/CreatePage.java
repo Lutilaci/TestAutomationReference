@@ -41,7 +41,7 @@ public class CreatePage extends BasePage{
 
     public List<String> issueTypesSupposedToBe = Arrays.asList("Bug", "Story", "Task");
 
-    public CreatePage() {}
+    public CreatePage(){}
 
     public void restoreIssue(){
         waitForElementToClick(actionButton);
@@ -156,5 +156,10 @@ public class CreatePage extends BasePage{
         waitForElementToClick(searchForIssuesButton);
         waitForElementToSendText(searchForIssueField, issueName);
         clickButton(searchButton);
+    }
+
+    public void clickCreateButton(){
+        openUrl("secure/Dashboard.jspa");
+        clickButton(mainCreateButton);
     }
 }

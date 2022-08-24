@@ -12,11 +12,7 @@ public class LoginPage extends BasePage{
     @FindBy(css = "#log_out") public WebElement logoutButton;
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
 
-    final String USER_NAME = System.getenv("USER_NAME");
-    final String PASSWORD = System.getenv("PASSWORD");
-
-    public LoginPage() {
-    }
+    public LoginPage() {}
 
     public void login() {
         openUrl( "login.jsp");
@@ -53,9 +49,5 @@ public class LoginPage extends BasePage{
 
     public void submitLogin(){
         passwordField.submit();
-    }
-
-    public String getUSER_NAME() {
-        return USER_NAME;
     }
 }

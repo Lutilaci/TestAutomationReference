@@ -1,20 +1,17 @@
 package test;
 
 import com.codecool.testautomation.page.BrowsePage;
-import com.codecool.testautomation.page.LoginPage;
 import org.junit.jupiter.api.*;
 
 import static com.codecool.testautomation.config.DriverSingleton.*;
 
 public class BrowseProjectsTest {
     static BrowsePage browsePage;
-    static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp() {
         browsePage = new BrowsePage();
-        loginPage = new LoginPage();
-        loginPage.login();
+        browsePage.login();
     }
 
     @AfterAll

@@ -19,7 +19,6 @@ public class PermissionsPage extends BasePage {
     @FindBy(id = "glass-permissions-nav") public static WebElement PermissionsMatrixButton;
     @FindBy(xpath = "//a[contains(text(),'View by Permissions')]") public static WebElement ViewByButton;
 
-
     public PermissionsPage() {}
 
     public  void  OpenPPProjectSettings() {
@@ -63,7 +62,6 @@ public class PermissionsPage extends BasePage {
         return true;
     }
 
-
     public int findTrInPermissionMatrix(String trName) {
         List<WebElement> matrix = driver.findElements(By.xpath("//td//p[@class = 'title']"));
         int result = 0;
@@ -74,7 +72,6 @@ public class PermissionsPage extends BasePage {
         }
         return 0;
     }
-
 
     public int findThInPermissionMatrix(String thName) {
         List<WebElement> matrix = driver.findElements(By.xpath("//th//b"));

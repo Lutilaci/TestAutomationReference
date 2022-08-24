@@ -8,7 +8,8 @@ import org.junit.jupiter.api.Test;
 
 import static com.codecool.testautomation.config.DriverSingleton.*;
 
-public class LoginTest {
+public class LoginTest{
+
     LoginPage loginPage;
 
     final String WRONG_USER_NAME = "wrongUserName";

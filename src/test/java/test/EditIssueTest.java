@@ -1,25 +1,22 @@
 package test;
 
 import com.codecool.testautomation.page.EditIssuePage;
-import com.codecool.testautomation.page.LoginPage;
 import org.junit.jupiter.api.*;
 
 import static com.codecool.testautomation.config.DriverSingleton.*;
 
-public class EditIssueTest {
+public class EditIssueTest{
     static EditIssuePage editIssuePage;
-    static LoginPage loginPage;
 
     @BeforeAll
     public static void setUp(){
         editIssuePage = new EditIssuePage();
-        loginPage = new LoginPage();
-        loginPage.login();
-        editIssuePage.openUrl("browse/MTP-2096");
+        editIssuePage.login();
+        editIssuePage.openUrl("browse/MTP-2235");
     }
 
-    @AfterEach
-    public void tearDown(){
+    @AfterAll
+    public static void tearDown(){
         quit();
     }
 
@@ -29,6 +26,9 @@ public class EditIssueTest {
         editIssuePage.renameSummary("Happy Path Edit");
         editIssuePage.updateIssue();
         Assertions.assertEquals("Happy Path Edit", editIssuePage.getSummary());
+
+        // Restore
+        editIssuePage.restoreChanges();
     }
 
     @Test

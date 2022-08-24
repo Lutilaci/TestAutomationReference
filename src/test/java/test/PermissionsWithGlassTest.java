@@ -1,5 +1,6 @@
 package test;
 
+import com.codecool.testautomation.page.BasePage;
 import com.codecool.testautomation.page.LoginPage;
 import com.codecool.testautomation.page.PermissionsPage;
 import org.junit.jupiter.api.AfterAll;
@@ -13,17 +14,15 @@ import static com.codecool.testautomation.config.DriverSingleton.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class PermissionsWithGlassTest {
+public class PermissionsWithGlassTest{
 
-    static PermissionsPage pPage;
-    static LoginPage loginPage;
+    static PermissionsPage permissionsPage;
 
     @BeforeAll
     public static void setUp() {
 
-        pPage = new PermissionsPage();
-        loginPage = new LoginPage();
-        loginPage.login();
+        permissionsPage = new PermissionsPage();
+        permissionsPage.login();
     }
 
     @AfterAll
@@ -33,28 +32,28 @@ public class PermissionsWithGlassTest {
 
     @Test
     public void availableRequiredIssuesInPPProject() {
-        pPage.OpenPPProjectSettings();
-        assertTrue(pPage.validateSettingIssues(Arrays.asList("Bug","Epic","Story","Sub-task","Task")));
+        permissionsPage.OpenPPProjectSettings();
+        assertTrue(permissionsPage.validateSettingIssues(Arrays.asList("Bug","Epic","Story","Sub-task","Task")));
     }
 
     @Test
     public void hasAllPPProjectIssueTypesInGlass() {
-        pPage.OpenPPProjectSettings();
-        List<String> issuesInSetting = pPage.GetAllIssueTypesFromSettings();
-        pPage.OpenPPProjectGlassPage();
+        permissionsPage.OpenPPProjectSettings();
+        List<String> issuesInSetting = permissionsPage.GetAllIssueTypesFromSettings();
+        permissionsPage.OpenPPProjectGlassPage();
 
-        assertTrue(pPage.validateDropDown(issuesInSetting));
-        assertTrue(pPage.validateIcons(issuesInSetting));
+        assertTrue(permissionsPage.validateDropDown(issuesInSetting));
+        assertTrue(permissionsPage.validateIcons(issuesInSetting));
     }
 
     @Test
     public void CheckPermissionAccess() {
-        pPage.OpenPPProjectGlassPage();
+        permissionsPage.OpenPPProjectGlassPage();
 
-        pPage.goToPermissionsMatrix();
-        assertTrue(pPage.validatePermissionsMatrix("Browse Projects", "Any logged in user"));
+        permissionsPage.goToPermissionsMatrix();
+        assertTrue(permissionsPage.validatePermissionsMatrix("Browse Projects", "Any logged in user"));
 
-        pPage.goToViewBy();
-        assertTrue(pPage.validateViewBy("Browse Projects", "Granted to"));
+        permissionsPage.goToViewBy();
+        assertTrue(permissionsPage.validateViewBy("Browse Projects", "Granted to"));
     }
 }
