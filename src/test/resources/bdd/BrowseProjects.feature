@@ -1,6 +1,6 @@
-Feature: Check TOUCAN project
+Feature: Check project types available
 
-  Scenario Outline: Check TOUCAN project
+  Scenario Outline: Check project types available
     Given Open project <project>
     Then Check is the current project is <project>
 

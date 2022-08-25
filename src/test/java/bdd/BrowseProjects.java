@@ -18,8 +18,8 @@ public class BrowseProjects extends BasePage {
     final String PASSWORD = System.getenv("PASSWORD");
 
     @Before
-    public void login(){
-        openUrl("/login.jsp");
+    public void before_all(){
+        openUrl("login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         passwordField.submit();
@@ -27,6 +27,7 @@ public class BrowseProjects extends BasePage {
 
     @Given("Open project {string}")
     public void openProject(String project){
+
         openUrl("projects/" + project + "/summary");
     }
 

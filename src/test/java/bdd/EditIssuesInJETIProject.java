@@ -1,10 +1,7 @@
 package bdd;
 
 import com.codecool.testautomation.page.BasePage;
-import io.cucumber.java.After;
-import io.cucumber.java.AfterAll;
 import io.cucumber.java.Before;
-import io.cucumber.java.BeforeAll;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import org.openqa.selenium.WebElement;
@@ -21,17 +18,12 @@ public class EditIssuesInJETIProject extends BasePage{
     final String PASSWORD = System.getenv("PASSWORD");
 
     @Before
-    public void login(){
-        openUrl("/login.jsp");
+    public void before_all(){
+        openUrl("login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         passwordField.submit();
     }
-
-//    @After
-//    public void quitDriver(){
-//        driver.quit();
-//    }
 
     @Given("Open issue {string}")
     public void openIssue(String issueId){

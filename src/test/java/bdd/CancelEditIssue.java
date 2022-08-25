@@ -1,7 +1,6 @@
 package bdd;
 
 import com.codecool.testautomation.page.BasePage;
-import io.cucumber.java.After;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -26,14 +25,9 @@ public class CancelEditIssue extends BasePage {
     final String USER_NAME = System.getenv("USER_NAME");
     final String PASSWORD = System.getenv("PASSWORD");
 
-//    @After
-//    public void quitDriver(){
-//        driver.quit();
-//    }
-
     @Given("As valid user I am logged-in to Jira")
-    public void login(){
-        openUrl("/login.jsp");
+    public void loginToJira(){
+        openUrl("login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         passwordField.submit();
