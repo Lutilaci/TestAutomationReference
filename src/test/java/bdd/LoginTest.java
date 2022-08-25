@@ -12,8 +12,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.util.Objects;
 
-// Can I have a review pls?
-
 public class LoginTest extends BasePage {
 
     @FindBy (className = "aui-message-error") WebElement errorMessage;

@@ -23,7 +23,7 @@ public class BrowseIssuesTest{
 
     @Test
     public void browseIssues(){
-        browsePage.openUrl("projects/MTP/issues/MTP-2020?filter=allopenissues");
+        browsePage.openUrl("projects/MTP/issues/MTP-2235?filter=allissues");
         Assertions.assertEquals("All issues", browsePage.subnavigatorTitle.getText());
         Assertions.assertEquals("Happy Path", browsePage.browseIssueHeader.getText());
     }

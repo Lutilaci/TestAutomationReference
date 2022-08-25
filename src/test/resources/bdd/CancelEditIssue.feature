@@ -1,9 +1,7 @@
-// Can I have a review pls?
-
 Feature: Cancel edit issue
   During editing an issue you try to cancel it
 
-  Scenario: After cancel you are not able to see the edited issue name
+  Scenario: After cancel editing issue you are not able to see the edited issue name
     Given As valid user I am logged-in to Jira
     And Navigate to MTP-2235
     When I click to 'Edit' button

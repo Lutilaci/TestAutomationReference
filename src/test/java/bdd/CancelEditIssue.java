@@ -26,8 +26,8 @@ public class CancelEditIssue extends BasePage {
     final String PASSWORD = System.getenv("PASSWORD");
 
     @Given("As valid user I am logged-in to Jira")
-    public void login(){
-        openUrl("/login.jsp");
+    public void loginToJira(){
+        openUrl("login.jsp");
         usernameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
         passwordField.submit();
