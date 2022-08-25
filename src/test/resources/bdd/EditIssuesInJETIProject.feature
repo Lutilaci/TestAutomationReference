@@ -4,7 +4,6 @@ Feature: Check are issues editable in JETI project
     Given Open issue <issue_id>
     Then I see the 'Edit' button
 
-
     Examples:
     |  issue_id  |
     | 'JETI-1'  |
