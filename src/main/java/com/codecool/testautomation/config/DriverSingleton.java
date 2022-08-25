@@ -2,6 +2,8 @@ package com.codecool.testautomation.config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+// Can I have a review pls?
+
 public class DriverSingleton {
 
     private static WebDriver driver = null;

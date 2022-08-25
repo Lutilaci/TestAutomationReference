@@ -3,6 +3,8 @@ package com.codecool.testautomation.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+// Can I have a review pls?
+
 public class BrowsePage extends BasePage {
 
     @FindBy (xpath = "//*[@id=\"summary-val\"]") public WebElement browseIssueHeader;
