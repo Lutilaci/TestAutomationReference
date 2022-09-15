@@ -20,7 +20,7 @@ public class DriverSingleton {
 
     public static WebDriver getDriver() throws MalformedURLException {
         final String BROWSER = System.getProperty("BROWSER");
-        final String PASSWORD = System.getProperty("PASSWORD");
+//        final String PASSWORD = System.getProperty("PASSWORD");
 
         if (driver == null) {
 
