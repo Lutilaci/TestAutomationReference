@@ -22,17 +22,20 @@ public class DriverSingleton {
         final String BROWSER = System.getProperty("BROWSER");
         final String PASSWORD = System.getProperty("PASSWORD");
 
-        DesiredCapabilities capability = new DesiredCapabilities();
-        if (BROWSER.equals("CHROME")){
-            capability.setBrowserName("chrome");
-        } else if (BROWSER.equals("FIREFOX")){
-            capability.setBrowserName("firefox");
+        if (driver == null) {
+
+            DesiredCapabilities capability = new DesiredCapabilities();
+            if (BROWSER.equals("CHROME")) {
+                capability.setBrowserName("chrome");
+            } else if (BROWSER.equals("FIREFOX")) {
+                capability.setBrowserName("firefox");
+            }
+            capability.setPlatform(Platform.LINUX);
+
+            driver = new RemoteWebDriver(
+                    new URL("https://selenium:" + PASSWORD + "@seleniumhub.codecool.metastage.net/wd/hub"), capability);
+
         }
-        capability.setPlatform(Platform.LINUX);
-
-        driver = new RemoteWebDriver(
-                new URL("https://selenium:" + PASSWORD + "@seleniumhub.codecool.metastage.net/wd/hub"), capability);
-
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
         return driver;
     }
