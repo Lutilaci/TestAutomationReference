@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -43,7 +44,7 @@ public class CreatePage extends BasePage{
 
     public List<String> issueTypesSupposedToBe = Arrays.asList("Bug", "Story", "Task");
 
-    public CreatePage(){}
+    public CreatePage()throws MalformedURLException {}
 
     public void restoreIssue(){
         waitForElementToClick(actionButton);

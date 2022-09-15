@@ -3,6 +3,8 @@ package com.codecool.testautomation.page;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 // Can I have a review pls?
 
 public class BrowsePage extends BasePage {
@@ -14,5 +16,5 @@ public class BrowsePage extends BasePage {
     @FindBy (css = ".project-meta-value:nth-child(6)") public WebElement projectMetaValue;
     @FindBy (xpath = "/html//span[@id='issues-subnavigation-title']") public WebElement subnavigatorTitle;
 
-    public BrowsePage() {}
+    public BrowsePage() throws MalformedURLException {}
 }

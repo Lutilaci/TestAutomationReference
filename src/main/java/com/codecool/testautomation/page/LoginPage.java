@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.net.MalformedURLException;
+
 // Can I have a review pls?
 
 public class LoginPage extends BasePage{
@@ -16,7 +18,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
     @FindBy(css = "#login") public WebElement loginButton;
 
-    public LoginPage() {}
+    public LoginPage() throws MalformedURLException {}
 
     public void login() {
         openUrl( "login.jsp");

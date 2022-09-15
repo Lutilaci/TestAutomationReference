@@ -8,6 +8,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.Objects;
 
@@ -18,14 +19,14 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    final String BASE_URL = System.getenv("BASE_URL");
-    final String USER_NAME = System.getenv("USER_NAME");
-    final String PASSWORD = System.getenv("PASSWORD");
+    final String BASE_URL = System.getProperty("BASE_URL");
+    final String USER_NAME = System.getProperty("USER_NAME");
+    final String PASSWORD = System.getProperty("PASSWORD");
 
     @FindBy(id = "login-form-password") WebElement passwordField;
     @FindBy(id = "login-form-username") WebElement userNameField;
 
-    public BasePage(){
+    public BasePage() throws MalformedURLException {
         driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         PageFactory.initElements(driver, this);

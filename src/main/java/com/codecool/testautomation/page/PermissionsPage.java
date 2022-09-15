@@ -6,6 +6,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -21,7 +22,7 @@ public class PermissionsPage extends BasePage {
     @FindBy(id = "glass-permissions-nav") public static WebElement PermissionsMatrixButton;
     @FindBy(xpath = "//a[contains(text(),'View by Permissions')]") public static WebElement ViewByButton;
 
-    public PermissionsPage() {}
+    public PermissionsPage() throws MalformedURLException {}
 
     public  void  OpenPPProjectSettings() {
         openUrl("plugins/servlet/project-config/PP/summary");

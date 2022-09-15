@@ -4,6 +4,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 
+import java.net.MalformedURLException;
+
 // Can I have a review pls?
 
 public class EditIssuePage extends BasePage{
@@ -21,7 +23,7 @@ public class EditIssuePage extends BasePage{
     @FindBy(css = ".item-delete") public WebElement fixVersionDelete;
     @FindBy(id = "action_id_21") public WebElement inProgressButton;
 
-    public EditIssuePage() {}
+    public EditIssuePage() throws MalformedURLException {}
 
     public void renameSummary(String summaryName){
         wait.until(ExpectedConditions.elementToBeClickable(
