@@ -36,7 +36,7 @@ public abstract class BasePage {
 
     public void login(){
         openUrl( "login.jsp");
-        waitForWebElementToBePresent(userNameField);
+//        waitForWebElementToBePresent(userNameField);
 
         userNameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
