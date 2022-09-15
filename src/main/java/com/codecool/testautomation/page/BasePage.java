@@ -29,6 +29,7 @@ public abstract class BasePage {
     public BasePage() throws MalformedURLException {
         System.out.println(BASE_URL + PASSWORD + USER_NAME);
         driver = DriverSingleton.getDriver();
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         PageFactory.initElements(driver, this);
         driver.manage().window().maximize();
