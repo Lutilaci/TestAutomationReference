@@ -1,7 +1,5 @@
 package test;
 
-import com.codecool.testautomation.page.BasePage;
-import com.codecool.testautomation.page.LoginPage;
 import com.codecool.testautomation.page.PermissionsPage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;

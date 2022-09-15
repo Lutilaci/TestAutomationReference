@@ -4,8 +4,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-// Can I have a review pls?
-
 public class LoginPage extends BasePage{
 
     @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
