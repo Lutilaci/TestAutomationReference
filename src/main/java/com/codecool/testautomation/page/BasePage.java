@@ -57,8 +57,8 @@ public abstract class BasePage {
 
     public static void clickButton(WebElement webElement){webElement.click();}
 
-    public static String nullToEmptyString(String string) {
-        return Objects.requireNonNullElse(string, "");
-    }
+//    public static String nullToEmptyString(String string) {
+//        return Objects.requireNonNullElse(string, "");
+//    }
 
 }

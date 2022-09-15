@@ -11,12 +11,12 @@ pipeline {
             parallel{
                 stage("chrome run"){
                     steps{
-                        sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER=CHROME")
+                        sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER='CHROME'")
                     }
                 }
                 stage("firefox run"){
                     steps{
-                        sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER=FIREFOX")
+                        sh(script: "mvn clean test -DUSER_NAME=$USER_NAME -DPASSWORD=$PASSWORD -DBASE_URL=$BASE_URL -DBROWSER='FIREFOX'")
                     }
                 }
             }

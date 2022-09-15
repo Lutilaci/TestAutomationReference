@@ -31,14 +31,14 @@ public class LoginPage extends BasePage{
         waitForWebElementToBePresent(userProfilePicture);
     }
 
-    public void loginWithDifferentValue(String username, String password){
-        openUrl( "login.jsp");
-        waitForWebElementToBePresent(userNameField);
-
-        userNameField.sendKeys(nullToEmptyString(username));
-        passwordField.sendKeys(nullToEmptyString(password));
-        submitLogin();
-    }
+//    public void loginWithDifferentValue(String username, String password){
+//        openUrl( "login.jsp");
+//        waitForWebElementToBePresent(userNameField);
+//
+//        userNameField.sendKeys(nullToEmptyString(username));
+//        passwordField.sendKeys(nullToEmptyString(password));
+//        submitLogin();
+//    }
 
 
     public String validateSuccessfulLogin() {
