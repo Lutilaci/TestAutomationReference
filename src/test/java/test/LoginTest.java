@@ -10,8 +10,6 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 import static com.codecool.testautomation.config.DriverSingleton.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// Can I have a review pls?
-
 public class LoginTest{
 
     LoginPage loginPage;
@@ -21,7 +19,7 @@ public class LoginTest{
     @BeforeEach
     public void setUp() {
         loginPage = new LoginPage();
-        loginPage.openUrl("/login.jsp");
+        loginPage.openUrl("login.jsp");
     }
 
     @AfterAll

@@ -8,8 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import static com.codecool.testautomation.config.DriverSingleton.quit;
 
-// Can I have a review pls?
-
 public class LogOutTest{
 
     static LoginPage loginPage;

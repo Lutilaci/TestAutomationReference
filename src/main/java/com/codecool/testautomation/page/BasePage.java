@@ -11,8 +11,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.util.Objects;
 
-// Can I have a review pls?
-
 public abstract class BasePage {
 
     public WebDriver driver;
@@ -26,8 +24,8 @@ public abstract class BasePage {
     @FindBy(id = "login-form-username") WebElement userNameField;
 
     public BasePage(){
-        driver = DriverSingleton.getDriver();
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
+        driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         PageFactory.initElements(driver, this);
         driver.manage().window().maximize();
@@ -35,7 +33,7 @@ public abstract class BasePage {
 
     public void login(){
         openUrl( "login.jsp");
-        waitForWebElementToBePresent(userNameField);
+//        waitForWebElementToBePresent(userNameField);
 
         userNameField.sendKeys(USER_NAME);
         passwordField.sendKeys(PASSWORD);
@@ -60,5 +58,4 @@ public abstract class BasePage {
     public static String nullToEmptyString(String string) {
         return Objects.requireNonNullElse(string, "");
     }
-
 }
