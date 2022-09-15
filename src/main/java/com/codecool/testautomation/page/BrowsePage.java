@@ -11,7 +11,7 @@ public class BrowsePage extends BasePage {
     @FindBy (xpath = "//*[@id=\"key-val\"]") public WebElement issueLink;
     @FindBy (xpath = "//div[@class='aui-page-header-main']") public WebElement mainPageHeader;
     @FindBy (xpath = "//main[@id='main']/h1[@class='projects-error-page-heading']") public WebElement pageError;
-    @FindBy (xpath = "//*[@id=\"summary-body\"]/div/div[2]/dl/dd[3]") public WebElement projectMetaValue;
+    @FindBy (css = ".project-meta .project-meta-value:nth-child(4)") public WebElement projectMetaValue;
     @FindBy (xpath = "/html//span[@id='issues-subnavigation-title']") public WebElement subnavigatorTitle;
 
     public BrowsePage() throws MalformedURLException {}
