@@ -21,6 +21,7 @@ public class LoginPage extends BasePage{
     public LoginPage() throws MalformedURLException {}
 
     public void login() {
+        System.out.println(BASE_URL + PASSWORD + USER_NAME);
         openUrl( "login.jsp");
         waitForWebElementToBePresent(userNameField);
 

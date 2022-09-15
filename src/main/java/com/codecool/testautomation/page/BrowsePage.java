@@ -5,8 +5,6 @@ import org.openqa.selenium.support.FindBy;
 
 import java.net.MalformedURLException;
 
-// Can I have a review pls?
-
 public class BrowsePage extends BasePage {
 
     @FindBy (xpath = "//*[@id=\"summary-val\"]") public WebElement browseIssueHeader;

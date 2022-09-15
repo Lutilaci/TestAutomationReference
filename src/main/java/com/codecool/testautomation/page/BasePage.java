@@ -17,15 +17,14 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    final String BASE_URL = System.getProperty("BASE_URL");
-    final String USER_NAME = System.getProperty("USER_NAME");
-    final String PASSWORD = System.getProperty("PASSWORD");
+    public final String BASE_URL = System.getProperty("BASE_URL");
+    public final String USER_NAME = System.getProperty("USER_NAME");
+    public final String PASSWORD = System.getProperty("PASSWORD");
 
     @FindBy(id = "login-form-password") WebElement passwordField;
     @FindBy(id = "login-form-username") WebElement userNameField;
 
     public BasePage() throws MalformedURLException {
-        System.out.println(BASE_URL + PASSWORD + USER_NAME);
         driver = DriverSingleton.getDriver();
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver");
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
