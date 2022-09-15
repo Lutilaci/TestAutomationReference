@@ -28,7 +28,7 @@ public class CreatePage extends BasePage{
     @FindBy (xpath = "//*[@id=\"find_link\"]") public WebElement issuesButton;
     @FindBy (xpath = "//ul[@class='aui-last']") public WebElement issueScrollDown;
     @FindBy (id ="issuetype-field") public WebElement issueTypeSelector;
-    @FindBy (xpath = "//*[@id=\"create_link\"]") public WebElement mainCreateButton;
+    @FindBy(linkText = "Create") public WebElement  mainCreateButton;
     @FindBy (xpath = "//a[@id='opsbar-operations_more']") public WebElement moreButton;
     @FindBy (xpath = "//*[@id=\"aui-flag-container\"]/div/div") public WebElement popupMessage;
     @FindBy (xpath = "//input[@id='project-field']") public WebElement projectField;
