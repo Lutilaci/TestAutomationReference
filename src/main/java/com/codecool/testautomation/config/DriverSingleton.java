@@ -1,9 +1,6 @@
 package com.codecool.testautomation.config;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.Platform;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -23,7 +20,6 @@ public class DriverSingleton {
 //        final String PASSWORD = System.getProperty("PASSWORD");
 
         if (driver == null) {
-
             DesiredCapabilities capability = new DesiredCapabilities();
             if (BROWSER.equals("CHROME")) {
                 capability.setBrowserName("chrome");
