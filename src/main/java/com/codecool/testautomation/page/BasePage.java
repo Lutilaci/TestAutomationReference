@@ -35,6 +35,7 @@ public abstract class BasePage {
     }
 
     public void login(){
+        System.out.println(USER_NAME + PASSWORD);
         openUrl( "login.jsp");
 //        waitForWebElementToBePresent(userNameField);
 
