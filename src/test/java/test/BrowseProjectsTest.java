@@ -30,6 +30,7 @@ public class BrowseProjectsTest {
     @Test
     public void openExistingProject(){
         browsePage.openUrl("projects/MTP/summary");
+        browsePage.waitForWebElementToBePresent(browsePage.projectMetaValue);
         Assertions.assertEquals("MTP", browsePage.projectMetaValue.getText());
     }
 
