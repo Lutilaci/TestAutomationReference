@@ -14,7 +14,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class LoginTest{
 
-    LoginPage loginPage;
+    static LoginPage loginPage;
 
     private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
 

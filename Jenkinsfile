@@ -1,5 +1,8 @@
 pipeline {
     agent any
+       parameters {
+           password(name: 'PASSWORD', description: 'Encryption key')
+       }
 
     stages {
         stage("build"){
