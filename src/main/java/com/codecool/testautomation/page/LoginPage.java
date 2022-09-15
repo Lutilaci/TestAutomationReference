@@ -13,9 +13,9 @@ public class LoginPage extends BasePage{
     @FindBy(css = ".aui-avatar-small img") public WebElement avatar;
     @FindBy(css = "#log_out") public WebElement logoutButton;
     @FindBy(xpath = "//*[@id=\"main\"]/div/div/p[1]") public WebElement logoutMessage;
-    @FindBy(id = "login-form-password") WebElement passwordField;
-    @FindBy(id = "login-form-username") WebElement userNameField;
-    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") WebElement userProfilePicture;
+    @FindBy(id = "login-form-password") public WebElement passwordField;
+    @FindBy(id = "login-form-username") public WebElement userNameField;
+    @FindBy(xpath = "//*[@id=\"header-details-user-fullname\"]//img") public WebElement userProfilePicture;
     @FindBy(css = "#login") public WebElement loginButton;
 
     public LoginPage() throws MalformedURLException {}
