@@ -12,8 +12,6 @@ import java.net.MalformedURLException;
 import java.time.Duration;
 import java.util.Objects;
 
-// Can I have a review pls?
-
 public abstract class BasePage {
 
     public WebDriver driver;

@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-// Can I have a review pls?
-
 public class PermissionsPage extends BasePage {
 
     @FindBy(id = "project-issuetypes-container") public static WebElement issueTypesContainer;

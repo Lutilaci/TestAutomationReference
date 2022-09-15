@@ -21,7 +21,7 @@ public class LoginTest{
     @BeforeEach
     public void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
-        loginPage.openUrl("/login.jsp");
+        loginPage.openUrl("login.jsp");
     }
 
     @AfterAll
