@@ -27,6 +27,7 @@ public abstract class BasePage {
     @FindBy(id = "login-form-username") WebElement userNameField;
 
     public BasePage() throws MalformedURLException {
+        System.out.println(BASE_URL + PASSWORD + USER_NAME);
         driver = DriverSingleton.getDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(4));
         PageFactory.initElements(driver, this);
