@@ -3,15 +3,15 @@ package test;
 import com.codecool.testautomation.page.EditIssuePage;
 import org.junit.jupiter.api.*;
 
-import static com.codecool.testautomation.config.DriverSingleton.*;
+import java.net.MalformedURLException;
 
-// Can I have a review pls?
+import static com.codecool.testautomation.config.DriverSingleton.*;
 
 public class EditIssueTest{
     static EditIssuePage editIssuePage;
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() throws MalformedURLException {
         editIssuePage = new EditIssuePage();
         editIssuePage.login();
         editIssuePage.openUrl("browse/MTP-2235");

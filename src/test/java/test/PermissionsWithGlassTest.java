@@ -7,20 +7,19 @@ import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.net.MalformedURLException;
 import java.util.Arrays;
 import java.util.List;
 
 import static com.codecool.testautomation.config.DriverSingleton.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-// Can I have a review pls?
-
 public class PermissionsWithGlassTest{
 
     static PermissionsPage permissionsPage;
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws MalformedURLException {
 
         permissionsPage = new PermissionsPage();
         permissionsPage.login();

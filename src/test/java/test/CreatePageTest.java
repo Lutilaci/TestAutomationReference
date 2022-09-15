@@ -3,15 +3,15 @@
 import com.codecool.testautomation.page.CreatePage;
 import org.junit.jupiter.api.*;
 
-import static com.codecool.testautomation.config.DriverSingleton.*;
+import java.net.MalformedURLException;
 
- // Can I have a review pls?
+import static com.codecool.testautomation.config.DriverSingleton.*;
 
 public class CreatePageTest {
     static CreatePage createPage;
 
     @BeforeAll
-    public static void setUp() {
+    public static void setUp() throws MalformedURLException {
         createPage = new CreatePage();
         createPage.login();
     }

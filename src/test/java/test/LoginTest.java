@@ -7,10 +7,10 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
+import java.net.MalformedURLException;
+
 import static com.codecool.testautomation.config.DriverSingleton.*;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
-// Can I have a review pls?
 
 public class LoginTest{
 
@@ -19,7 +19,7 @@ public class LoginTest{
     private static final String FAIL_TEST_DATA_SOURCE = "/login_fail.csv";
 
     @BeforeEach
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
         loginPage.openUrl("/login.jsp");
     }

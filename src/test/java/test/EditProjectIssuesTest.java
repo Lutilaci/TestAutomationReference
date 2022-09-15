@@ -4,17 +4,18 @@ import com.codecool.testautomation.page.EditIssuePage;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
+
+import java.net.MalformedURLException;
+
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import static com.codecool.testautomation.config.DriverSingleton.quit;
-
-// Can I have a review pls?
 
 public class EditProjectIssuesTest {
     static EditIssuePage editIssuePage;
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() throws MalformedURLException {
         editIssuePage = new EditIssuePage();
         editIssuePage.login();
     }

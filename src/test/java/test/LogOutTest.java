@@ -6,16 +6,16 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
-import static com.codecool.testautomation.config.DriverSingleton.quit;
+import java.net.MalformedURLException;
 
-// Can I have a review pls?
+import static com.codecool.testautomation.config.DriverSingleton.quit;
 
 public class LogOutTest{
 
     static LoginPage loginPage;
 
     @BeforeAll
-    public static void setUp(){
+    public static void setUp() throws MalformedURLException {
         loginPage = new LoginPage();
         loginPage.login();
     }
