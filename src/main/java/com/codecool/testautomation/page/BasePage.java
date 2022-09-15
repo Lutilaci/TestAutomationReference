@@ -21,8 +21,8 @@ public abstract class BasePage {
     public final String USER_NAME = System.getProperty("USER_NAME");
     public final String PASSWORD = System.getProperty("PASSWORD");
 
-    @FindBy(id = "login-form-password") WebElement passwordField;
-    @FindBy(id = "login-form-username") WebElement userNameField;
+    @FindBy(id = "login-form-password") public WebElement passwordField;
+    @FindBy(id = "login-form-username") public WebElement userNameField;
 
     public BasePage() throws MalformedURLException {
         driver = DriverSingleton.getDriver();
