@@ -17,9 +17,9 @@ public abstract class BasePage {
     public WebDriver driver;
     public WebDriverWait wait;
 
-    public final String BASE_URL = System.getProperty("BASE_URL");
-    public final String USER_NAME = System.getProperty("USER_NAME");
-    public final String PASSWORD = System.getProperty("PASSWORD");
+    public final String BASE_URL = "https://jira-auto.codecool.metastage.net/";
+    public final String USER_NAME = "automation24";
+    public final String PASSWORD = "CCAutoTest19.";
 
     @FindBy(id = "login-form-password") public WebElement passwordField;
     @FindBy(id = "login-form-username") public WebElement userNameField;
@@ -33,7 +33,6 @@ public abstract class BasePage {
     }
 
     public void login(){
-        System.out.println(USER_NAME + PASSWORD);
         openUrl( "login.jsp");
 
         userNameField.sendKeys(USER_NAME);

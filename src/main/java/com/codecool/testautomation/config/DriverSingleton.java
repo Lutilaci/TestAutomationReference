@@ -16,20 +16,13 @@ public class DriverSingleton {
     private DriverSingleton(){}
 
     public static WebDriver getDriver() throws MalformedURLException {
-        final String BROWSER = System.getProperty("BROWSER");
-        final String PASSWORD = System.getProperty("PASSWORD");
 
         if (driver == null) {
             DesiredCapabilities capability = new DesiredCapabilities();
-            if (BROWSER.equals("CHROME")) {
-                capability.setBrowserName("chrome");
-            } else if (BROWSER.equals("FIREFOX")) {
-                capability.setBrowserName("firefox");
-            }
-            capability.setPlatform(Platform.LINUX);
+            capability.setBrowserName("chrome");
 
             driver = new RemoteWebDriver(
-                    new URL("https://selenium:" + PASSWORD + "@seleniumhub.codecool.metastage.net/wd/hub"), capability);
+                    new URL("http://localhost:4444"), capability);
 
         }
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(2));
