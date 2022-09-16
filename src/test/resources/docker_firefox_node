@@ -1,0 +1,3 @@
+selenium/hub - docker pull selenium/hub
+selenium/node-firefox - docker pull selenium/node-firefox
+selenium/standalone-firefox-debug - docker pull selenium/standalone-firefox-debug

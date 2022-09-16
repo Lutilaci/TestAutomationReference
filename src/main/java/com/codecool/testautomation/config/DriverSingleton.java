@@ -19,7 +19,6 @@ public class DriverSingleton {
 
         if (driver == null) {
             DesiredCapabilities capability = new DesiredCapabilities();
-            capability.setBrowserName("firefox");
 
             driver = new RemoteWebDriver(
                     new URL("http://localhost:4444"), capability);
